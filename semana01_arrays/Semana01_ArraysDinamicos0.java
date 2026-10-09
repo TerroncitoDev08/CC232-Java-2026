@@ -26,13 +26,26 @@ public class Semana01_ArraysDinamicos0 {
         // TODO(alumno): crear un arreglo de capacidad max(1, 2*n), copiar
         // a[0..n-1] y reemplazar la referencia a.
         private void resize() {
-            throw new UnsupportedOperationException("TODO: implementar el método resize");
+            Integer[] b = new Integer[Math.max(1, 2*n)];
+            for(int i = 0; i < n; i++){
+                b[i] = a[i];
+            }
+
+            a = b;
+            //throw new UnsupportedOperationException("TODO: implementar el método resize");
         }
 
         // TODO(alumno): insertar x al final. Si n+1 supera la capacidad,
         // llamar primero a resize(). Costo amortizado esperado: O(1).
         boolean add(Integer x) {
-            throw new UnsupportedOperationException("TODO: implementar el método add");
+            if(n+1 > a.length){
+                resize();
+            }
+
+            a[n] = x;
+            n++;
+            return true;
+            //throw new UnsupportedOperationException("TODO: implementar el método add");
         }
 
         private void checkElementIndex(int i) {
