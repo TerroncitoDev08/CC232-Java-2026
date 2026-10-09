@@ -20,7 +20,21 @@ public class Semana04_BST0 {
         // TODO(alumno): seguir el camino de búsqueda y retornar el último nodo
         // visitado, null cuando el árbol está vacío.
         private Node findLast(int x) {
-            throw new UnsupportedOperationException("TODO: implementar el método findLast");
+            Node w = root;
+            Node prev = null;
+
+            while (w != null){
+                prev = w;
+                if (x < w.x){
+                    w = w.left;
+                } else if (x > w.x){
+                    w = w.right;
+                }else{
+                    return w;
+                }
+            }
+            return prev;
+            //throw new UnsupportedOperationException("TODO: implementar el método findLast");
         }
 
         boolean contains(int x) {
@@ -31,7 +45,30 @@ public class Semana04_BST0 {
         // TODO(alumno): usar findLast y enlazar un nuevo nodo como hijo de p.
         // Rechazar duplicados y mantener parent y n.
         boolean add(int x) {
-            throw new UnsupportedOperationException("TODO: implementar el método add");
+            Node p = findLast(x);
+            // p == null, el arbol es vacio
+            // p.x == x, clave existe
+            // p.x != x, la busqueda fallo y p indica al padre del nuevo nodo
+
+            if( p!= null && p.x == x){
+                return false;
+            }
+
+            Node u = new Node(x);
+
+            if( p == null){
+                root = u;
+            } else {
+                u.parent = p;
+                if ( x < p.x) 
+                    p.left = u;
+                else 
+                    p.right = u;
+            }
+
+            n++;
+            return true;
+            //throw new UnsSin contextoupportedOperationException("TODO: implementar el método add");
         }
 
         void inorder() {

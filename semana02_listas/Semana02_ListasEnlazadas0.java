@@ -37,13 +37,27 @@ public class Semana02_ListasEnlazadas0 {
         // TODO(alumno): insertar x en el head y actualizar tail si la lista
         // estaba vacía. Retornar x. Costo O(1).
         int push(int x) {
-            throw new UnsupportedOperationException("TODO: implementar el método push");
+            Node u = new Node(x);
+            if(n == 0) 
+                tail = u;
+            else
+                u.next = head;
+            head = u;
+            n++;
+            return x;
+            //hrow new UnsupportedOperationException("TODO: implementar el método push");
         }
 
         // TODO(alumno): retirar el head, retornar null si está vacía y
         // actualizar tail cuando se elimina el último nodo. Costo O(1).
         Integer pop() {
-            throw new UnsupportedOperationException("TODO: implementar el método pop");
+            if(n == 0) return null;
+            if(n == 1) tail = null;
+            int x = head.x;
+            head = head.next;
+            n--;
+            return x;
+            //throw new UnsupportedOperationException("TODO: implementar el método pop");
         }
 
         @Override

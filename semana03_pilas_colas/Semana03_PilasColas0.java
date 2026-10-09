@@ -18,13 +18,20 @@ public class Semana03_PilasColas0 {
 
         // TODO(alumno): insertar en la cabeza. Costo O(1).
         void push(char x) {
-            throw new UnsupportedOperationException("TODO: implementar el método push");
+            head = new Node(x,head);
+            n++;
+            //hrow new UnsupportedOperationException("TODO: implementar el método push");
         }
 
         // TODO(alumno): retirar y retornar la cabeza. Lanzar una excepción
-        // si la pila está vacía. Costo O(1).
+        // si la pila está vacía. Costo O(1).sudo pacman -S jdk-openjdk
         char pop() {
-            throw new UnsupportedOperationException("TODO: implementar el método pop");
+            if(n == 0) throw new UnsupportedOperationException("pila vacia");
+            char x = head.x;
+            head = head.next;
+            n--;
+            return x;
+            //throw new UnsupportedOperationException("TODO: implementar el método pop");
         }
     }
 
