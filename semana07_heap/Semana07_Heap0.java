@@ -27,7 +27,12 @@ public class Semana07_Heap0 {
         // TODO(alumno): mientras i>0 y a[i] sea menor que su padre,
         // intercambiar ambos y continuar desde el padre.
         private void bubbleUp(int i) {
-            throw new UnsupportedOperationException("TODO: implementar el método bubbleUp");
+            while( i > 0 && a[i] < a[parent(i)] ){
+                int p = parent(i);
+                swap(i , p);
+                i = p;
+            }
+            //throw new UnsupportedOperationException("TODO: implementar el método bubbleUp");
         }
 
         boolean add(int x) {
