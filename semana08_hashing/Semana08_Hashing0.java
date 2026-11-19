@@ -9,12 +9,17 @@ public class Semana08_Hashing0 {
     // TODO(alumno): calcular ((Z * hashCode) mod 2^W) div 2^(W-d).
     // En Java se obtiene con desplazamiento lógico >>>.
     static int hash(int hashCode, int d) {
-        throw new UnsupportedOperationException("TODO: implementar el método hash");
+        return (Z * hashCode) >>> (W -d);
+        //throw new UnsupportedOperationException("TODO: implementar el método hash");
     }
 
     // TODO(alumno): retornar el menor d>=1 tal que 2^d > n.
     static int dimensionFor(int n) {
-        throw new UnsupportedOperationException("TODO: implementar el método dimensionFor");
+        if (n < 0) throw new IllegalArgumentException();
+        int d = 1;
+        while ((1L << d) <= n) d++;
+        return d;
+        //throw new UnsupportedOperationException("TODO: implementar el método dimensionFor");
     }
 
     public static void main(String[] args) {
